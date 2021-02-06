@@ -10,24 +10,46 @@
     <script src="https://kit.fontawesome.com/b5a9800a27.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-    <style rel="stylesheet" src='style.css' type="text/css"></style>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <h1 class="heading">
-        <img src="logo.png" class="logo"> Love Maths
+        <img src="logo.png" class="logo" alt="Logo of Love Maths"> Love Maths
     </h1>
 
     <div class="game-area">
+        <div class="controls-area">
+            <button data-type="addition" class="btn btn--big btn--addition">
+                <i class="fas fa-plus"></i>
+            </button>
+            <button data-type="subtract" class="btn btn--big btn--subtract">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button data-type="multiply" class="btn btn--big btn--multiply">
+                <i class="fas fa-times"></i>
+            </button>
+            <button data-type="division" class="btn btn--big btn--division">
+                <i class="fas fa-divide"></i>
+            </button>
+        </div>
 
+        <div class="question-area">
+            <span id="operand1">0</span>
+            <span id="operator">?</span>
+            <span id="operand2">0</span>
+            <span>=</span>
+            <p class="answer-message">Enter Answer:</p>
+            <input id="answer-box" name="answer" type="number">
+        </div>
+        <button data-type="answer" class="btn btn--answer">Submit Answer</button>
     </div>
     <div class="score-area">
         <p class="scores">Correct Answers: <span id="score">0</span></p>
         <p class="scores">Incorrect Answers: <span id="incorrect">0</span></p>
     </div>
-    <script src="script.js">
-        type = "text/javascript"
-    </script>
+
+    <script src="script.js" type="text/javascript"></script>
 </body>
 
 </html>
