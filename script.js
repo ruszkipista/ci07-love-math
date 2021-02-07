@@ -3,6 +3,13 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let button of buttons) {
         button.addEventListener('click', handleClick);
     }
+    // allow the use of Enter key instead of click on submit button
+    let answerBox = document.getElementById('answer-box');
+    answerBox.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            handleAnswer();
+        }
+    });
     startNewGame('+')
 });
 
@@ -31,6 +38,7 @@ function startNewGame(game) {
     }
     gameElements[2].textContent = Math.floor(Math.random() * 25 + 1);
     gameElements[3].value = "";
+    gameElements[3].focus();
 }
 
 function handleClick(event) {
