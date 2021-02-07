@@ -57,12 +57,12 @@ body {
     margin: 30px auto;
 }
 
-#score {
+#counter-correct {
     color: green;
     font-weight: bold;
 }
 
-#incorrect {
+#counter-incorrect {
     color: red;
     font-weight: bold;
 }
