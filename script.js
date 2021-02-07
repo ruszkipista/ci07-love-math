@@ -25,18 +25,27 @@ function getGameElements() {
 
 function startNewGame(game) {
     let gameElements = getGameElements();
-    gameElements[0].textContent = Math.floor(Math.random() * 25 + 1);
+    let num1 = Math.floor(Math.random() * 25 + 1);
+    let num2 = Math.floor(Math.random() * 25 + 1);
     switch (game) {
         case '+':
+            break;
         case '-':
+            if (num2 > num1) {
+                [num1, num2] = [num2, num1];
+            }
+            break;
         case '*':
+            break;
         case '/':
-            gameElements[1].textContent = game;
+            num1 = num1 * num2;
             break;
         default:
-            gameElements[1].textContent = '?';
+            game = '?';
     }
-    gameElements[2].textContent = Math.floor(Math.random() * 25 + 1);
+    gameElements[0].textContent = num1;
+    gameElements[1].textContent = game;
+    gameElements[2].textContent = num2;
     gameElements[3].value = "";
     gameElements[3].focus();
 }
