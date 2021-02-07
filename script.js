@@ -11,7 +11,9 @@ function getGameElements() {
     let operator = document.getElementById('operator');
     let operand2 = document.getElementById('operand2');
     let answer = document.getElementById('answer-box');
-    return [operand1, operator, operand2, answer];
+    let counterC = document.getElementById('counter-correct');
+    let counterIC = document.getElementById('counter-incorrect');
+    return [operand1, operator, operand2, answer, counterC, counterIC];
 }
 
 function startNewGame(game) {
@@ -47,12 +49,12 @@ function handleClick(event) {
             startNewGame('/');
             break;
         case 'answer':
-            evaluateAnswer();
+            handleAnswer();
             break;
     }
 }
 
-function evaluateAnswer() {
+function handleAnswer() {
     let gameElements = getGameElements();
     let num1 = parseInt(gameElements[0].textContent);
     let operator = gameElements[1].textContent;
@@ -76,16 +78,12 @@ function evaluateAnswer() {
     }
     if (answer === result) {
         alert("Correct!");
-        updateCounter('counter-correct');
+        let score = parseInt(gameElements[4].textContent);
+        gameElements[4].textContent = ++score;
     } else {
         alert(`Wrong, correct answer is ${result}`);
-        updateCounter('counter-incorrect');
+        let score = parseInt(gameElements[5].textContent);
+        gameElements[5].textContent = ++score;
     }
     startNewGame(operator);
-}
-
-function updateCounter(targetCounter) {
-    let counter = document.getElementById(targetCounter);
-    let score = parseInt(counter.textContent);
-    counter.textContent = ++score;
 }
