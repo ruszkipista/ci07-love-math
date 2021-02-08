@@ -68,6 +68,9 @@ function handleClick(event) {
         case 'answer':
             handleAnswer();
             break;
+        default:
+            alert(`Unknown game type ${clicked}`);
+            throw `Unknown game type ${clicked}, aborting!`;
     }
 }
 
@@ -92,13 +95,16 @@ function handleAnswer() {
         case '/':
             result = num1 / num2;
             break;
+        default:
+            alert(`Unimplemented operator ${operator}`);
+            throw `Unimplemented operator ${operator}, aborting!`;
     }
     if (answer === result) {
-        alert("Correct!");
+        alert("Hey! You got it right! :D");
         let score = parseInt(gameElements[4].textContent);
         gameElements[4].textContent = ++score;
     } else {
-        alert(`Wrong, correct answer is ${result}`);
+        alert(`Awwww...you answered ${answer}. The correct answer was ${result}!`);
         let score = parseInt(gameElements[5].textContent);
         gameElements[5].textContent = ++score;
     }
